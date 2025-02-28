@@ -55,10 +55,10 @@ pipeline {
 			}
 		}
 
-		stage("deploy") {
-			steps {
-				echo 'Successfully deployed and running.'
-			}
-		}
+		stage('Deploy with Ansible') {
+            		steps {
+                		sh 'ansible-playbook -i inventory.ini deploy.yml'
+            		}
+        	}
 	}
 }
