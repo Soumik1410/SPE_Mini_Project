@@ -22,10 +22,17 @@ pipeline {
 	            }
         	}
 
-		stage("build") {
+		stage("Build") {
 			steps {
 				sh 'mvn clean package'
 				echo 'Build successfully completed.'
+			}
+		}
+
+		stage("Test") {
+			steps {
+				sh 'mvn test'
+				echo 'Unit Tested.'
 			}
 		}
 
@@ -47,12 +54,6 @@ pipeline {
 	                    		}
 	        		}
 	        	}
-		}
-
-		stage("test") {
-			steps {
-				echo 'Testing'
-			}
 		}
 
 		stage('Deploy with Ansible') {
