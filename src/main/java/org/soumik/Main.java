@@ -21,42 +21,42 @@ public class Main {
 	System.out.println();
 	if(ch == 1)
 	{
-		square_root(a);
+		System.out.println(square_root(a));
 	}
 	else if(ch == 2)
 	{
-		factorial(a);
+		System.out.println(factorial(a));
         }
 	else if(ch == 3)
 	{
-		natural_log(a);
+		System.out.println(natural_log(a));
 	}
 	else if(ch == 4)
 	{
 		System.out.print("Enter exponent : ");
 		b = sc.nextFloat();
-		power(a,b);
+		System.out.println("\n" + power(a,b));
 	}
 	System.out.println("\n");
 	}
     }
-    public void square_root(float a)
+    public double square_root(float a)
     {
-	    System.out.println(Math.sqrt(a));
+	    return Math.sqrt(a);
     }
-    public void factorial(float a)
+    public int factorial(float a)
     {
 	    int result = 1;
             for (int i = 2; i <= a; i++)
                 result *= i;
-            System.out.println(result);
+            return result;
     }
-    public void natural_log(float a)
+    public double natural_log(float a)
     {
-	    System.out.println(Math.log(a));
+	    return Math.log(a);
     }
-    public void power(float a, float b)
+    public double power(float a, float b)
     {
-	    System.out.println("\n" + Math.pow(a,b));
+	    return Math.pow(a,b);
     }
 }
