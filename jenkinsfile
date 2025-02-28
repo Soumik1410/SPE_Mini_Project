@@ -57,7 +57,8 @@ pipeline {
 		stage("build") {
 
 			steps {
-				echo 'Building'
+				sh 'mvn clean package'
+				echo 'Build successfully completed.'
 			}
 
 		}
@@ -73,7 +74,8 @@ pipeline {
 		stage("deploy") {
 
 			steps {
-				echo 'Deploying'
+				sh 'java -jar target/SPE_Mini_Project-1.0-SNAPSHOT.jar'
+				echo 'Successfully deployed and running.'
 			}
 
 		}
