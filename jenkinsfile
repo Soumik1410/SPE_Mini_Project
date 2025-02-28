@@ -3,83 +3,51 @@ pipeline {
 	agent any
 
 	environment {
-
 		GIT_CREDENTIALS = 'github-token'
-
  	}
 
-
 	stages {
-
-
 		stage('Checkout') {
-
-
 	            steps {
-
-
 	                script {
-
-
 	                    checkout scm: [
-
-
 	                        $class: 'GitSCM',
-
-
 	                        branches: [[name: '*/master']],
-
-
 	                        userRemoteConfigs: [[
-
-
 	                            url: 'https://github.com/Soumik1410/SPE_Mini_Project.git',
-
-
 	                            credentialsId: "${GIT_CREDENTIALS}"
-
-
 	                        ]]
-
-
 	                    ]
-
-
 	                }
-
-
 	            }
-
-
         	}
 
-
 		stage("build") {
-
 			steps {
 				sh 'mvn clean package'
 				echo 'Build successfully completed.'
 			}
-
 		}
 
-		stage("test") {
+		stage("Build Docker Image") {
+			steps {
+                		script {
+                    			sh 'docker build -t calculator_MT2024153:latest .'
+					echo 'Docker Image successfully created.'
+                		}
+            		}
+        	}
 
+		stage("test") {
 			steps {
 				echo 'Testing'
 			}
-
 		}
 
 		stage("deploy") {
-
 			steps {
-				sh 'java -jar target/SPE_Mini_Project-1.0-SNAPSHOT.jar'
 				echo 'Successfully deployed and running.'
 			}
-
 		}
-
 	}
-
 }
