@@ -38,6 +38,15 @@ pipeline {
             		}
         	}
 
+		stage('Pushing Docker Image to Hub') {
+	        	steps {
+	                	script {
+	                    		withDockerRegistry([credentialsId: 'dockerhub-creds', url: 'https://index.docker.io/v1/']) {
+	                        	sh "docker push calculator_mt2024153:latest"
+	                    	}
+	        	}
+	        }
+
 		stage("test") {
 			steps {
 				echo 'Testing'
