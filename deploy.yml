@@ -1,0 +1,23 @@
+---
+- name: Pull Docker image from Docker Hub and run it locally inside a container 
+  hosts: localhost
+  become: false
+  tasks:
+    - name: Pull Docker image from Docker Hub
+      docker_image:
+        name: soumik1410/calculator_mt2024153
+        tag: latest
+        source: pull
+      register: docker_pull_result
+
+    - name: Display Docker Pull Result
+      debug:
+        var: docker_pull_result
+
+    - name: Starting Docker Service
+      service: 
+        name: docker
+        state: started
+
+    - name: Running the image inside a container
+      shell: docker run -d --name soumik1410/calculator_mt2024153
