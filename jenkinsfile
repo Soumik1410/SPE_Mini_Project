@@ -4,7 +4,7 @@ pipeline {
 
 	environment {
 
-		GIT_CREDENTIALS = 'GITHUB-TOKEN'
+		GIT_CREDENTIALS = 'github-token'
 
  	}
 
@@ -33,7 +33,7 @@ pipeline {
 	                        userRemoteConfigs: [[
 
 
-	                            url: 'git@github.com:Soumik1410/SPE_Mini_Project.git',
+	                            url: 'https://github.com/Soumik1410/SPE_Mini_Project.git',
 
 
 	                            credentialsId: "${GIT_CREDENTIALS}"
