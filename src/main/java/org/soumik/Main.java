@@ -3,6 +3,11 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+	Main calculator = new Main();
+	calculator.input();
+    }
+    public void input()
+    {
 	Scanner sc = new Scanner(System.in);
 	while(true)
 	{
@@ -16,26 +21,42 @@ public class Main {
 	System.out.println();
 	if(ch == 1)
 	{
-		System.out.println(Math.sqrt(a));
+		square_root(a);
 	}
 	else if(ch == 2)
 	{
-		int result = 1;
-		for (int i = 2; i <= a; i++)
-	            result *= i;
-		System.out.println(result);
+		factorial(a);
         }
 	else if(ch == 3)
 	{
-		System.out.println(Math.log(a));
+		natural_log(a);
 	}
 	else if(ch == 4)
 	{
 		System.out.print("Enter exponent : ");
 		b = sc.nextFloat();
-		System.out.println("\n" + Math.pow(a,b));
+		power(a,b);
 	}
 	System.out.println("\n");
 	}
+    }
+    public void square_root(float a)
+    {
+	    System.out.println(Math.sqrt(a));
+    }
+    public void factorial(float a)
+    {
+	    int result = 1;
+            for (int i = 2; i <= a; i++)
+                result *= i;
+            System.out.println(result);
+    }
+    public void natural_log(float a)
+    {
+	    System.out.println(Math.log(a));
+    }
+    public void power(float a, float b)
+    {
+	    System.out.println("\n" + Math.pow(a,b));
     }
 }
