@@ -2,7 +2,57 @@ pipeline {
 
 	agent any
 
+	environment {
+
+		GIT_CREDENTIALS = 'github-token'
+
+ 	}
+
+
 	stages {
+
+
+		stage('Checkout') {
+
+
+	            steps {
+
+
+	                script {
+
+
+	                    checkout scm: [
+
+
+	                        $class: 'GitSCM',
+
+
+	                        branches: [[name: '*/master']],
+
+
+	                        userRemoteConfigs: [[
+
+
+	                            url: 'https://github.com/Soumik1410/SPE_Mini_Project.git',
+
+
+	                            credentialsId: "${GIT_CREDENTIALS}"
+
+
+	                        ]]
+
+
+	                    ]
+
+
+	                }
+
+
+	            }
+
+
+        	}
+
 
 		stage("build") {
 
