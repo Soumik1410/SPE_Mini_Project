@@ -19,5 +19,8 @@
         name: docker
         state: started
 
+    - name: Removing any existing containers with same name
+      shell: docker rm -f calculator_mt2024153
+
     - name: Running the image inside a container
       shell: docker run -it -d --name calculator_mt2024153 soumik1410/calculator_mt2024153
