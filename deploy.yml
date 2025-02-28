@@ -20,4 +20,4 @@
         state: started
 
     - name: Running the image inside a container
-      shell: docker run -d --name calculator_mt2024153 soumik1410/calculator_mt2024153
+      shell: docker run -it -d --name calculator_mt2024153 soumik1410/calculator_mt2024153
