@@ -7,7 +7,7 @@ public class Main {
 	while(true)
 	{
 	float a,b;
-	System.out.println("Calculator\n1. Enter 1 for Sqaure Root\n2. Enter 2 for Factorial\n3. Enter 3 for Natural Log\n4. Enter 4 for Power\n5. Enter 5 to exit\n");
+	System.out.println("Calculator\n1. Enter 1 for Square Root\n2. Enter 2 for Factorial\n3. Enter 3 for Natural Log\n4. Enter 4 for Power\n5. Enter 5 to exit\n");
 	int ch = sc.nextInt();
 	if(ch == 5)
 		System.exit(0);
