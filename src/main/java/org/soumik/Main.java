@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-	/*A comment to test GitSCM webhook delivery and pipeline trigger*/
+	/*A comment to test GITscm webhook delivery and pipeline trigger*/
 	Main calculator = new Main();
 	calculator.input();
     }
